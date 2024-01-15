@@ -1,28 +1,59 @@
-<h1 align="center">Hi 👋, I'm Syed Muhammad Minhal Rizvi</h1>
-<h3 align="center">A passionate full stack developer</h3>
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=minhal128&label=Profile%20views&color=0e75b6&style=flat" alt="minhal128" /> </p>
-
-<p align="left"> <a href="https://twitter.com/minhall25520475" target="blank"><img src="https://img.shields.io/twitter/follow/minhall25520475?logo=twitter&style=for-the-badge" alt="minhall25520475" /></a> </p>
+<h1 align="center">Quantum Block Quest</h1>
+<h3 align="center">A passionate game on Encryption Decryption and Blockchain Basic</h3>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=minhal128&label=Profile%20views&color=0e75b6&style=flat" alt="minhal128](https://gamztube.files.wordpress.com/2019/02/1_ouvhfpwmk04-mcy091hxeg-2.gif](https://gamztube.files.wordpress.com/2019/02/1_ouvhfpwmk04-mcy091hxeg-2.gif" /> </p>
 
 - 🔭 I’m currently working on **QuantumBlock Quest**
- <p>Our Project consist of a Web based graphical interface, in which you need to connect and login into the required URL. Here our virtual Assistant will inform the User of three activities. First activity will be , second activity will be a story telling game, and the third will be a mystery based game</p>
+ <p>Module 1
 
-- 🌱 I’m currently learning **C , C++ ,Python**
+Our Project consists of a Web-based graphical interface, in which you need to connect and log in to the required URL. Here our First activity will be a hill cipher type game, which is a storytelling game. The second activity will be basic blockchain mechanics.
 
-- 💬 Ask me about **C**
+Table of Contents
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://twitter.com/minhall25520475" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="minhall25520475" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/syed-muhammad-minhal-rizvi-0807962a4" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="syed-muhammad-minhal-rizvi-0807962a4" height="30" width="40" /></a>
-<a href="https://instagram.com/syedmuhammadminhalrizvi9" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="syedmuhammadminhalrizvi9" height="30" width="40" /></a>
+- [How to Play](#How-to-Play)
+- [Requirements](#Requirements)
+- [Features](#features)
+- [Contribution](#contribution)
+- [Limitations & Future Enhancement](#limitations)
+
+How to play
+
+The person should be responsible for having basic knowledge of Blockchain Transactions and a high IQ to solve riddles based on military equipment to break a scheme. When the scheme is broken, the player finds a key that helps them to move forward in the story.
+
+Requirements
+
+At the start of the project, you should put our website URL, which is www.iam.com (not real). Then the interface will be shown, and if you want to login or signup by clicking on them, you have to put your username and password. After that, two game options will be shown. The first is Quantum Quest, based on an encryption and decryption method, and an interesting storyline with the effect of a typewriter going on. For this, you have the ability to break the code by solving riddles. This contains 5 levels. The other game is a blockchain game that can only show the transaction history with a static memory, and if the user exits the game, all data of the blockchain will be removed.
+
+Features
+
+Both games contain the basic concepts of DSA, a binary search element in which the shifting of elements changes the game. Arrays concept, loops, structures, functions, DSA, and more importantly, file handling.
+
+Contribution
+
+- Syed Muhammad Minhal Rizvi CTCY-017:
+  Minhal made everything in this project, all the games, and functions. GitHub repository and also created readme.md.
+  
+- Anas Ahmed Shehzad CTCY-039:
+  Total Story of EpicBlock Quest was written by him.
+  
+- Imad Tahir CTCY-014:
+  Did Report.
+  
+- Sameed CTCY-015:
+  (Add a description of Sameed's contribution here).
+
+Limitations & Future Enhancement
+
+Limitations:
+
+- Did not include all ASCII code.
+- It might have errors.
+- The code is too long.
+
+Future Enhancements:
+
+- We can add the structure of different storylines and define conditions in them.
+- All ASCII code characters will be involved.
+- Having a graphical interface.
+- Having a dynamic string code of the storyline to be conveyed with the situations.
+- Transaction history in blockchain.
 </p>
-
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.adobe.com/in/products/illustrator.html" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" alt="illustrator" width="40" height="40"/> </a> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.adobe.com/products/xd.html" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/adobe-xd.svg" alt="xd" width="40" height="40"/> </a> </p>
-
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=minhal128&show_icons=true&locale=en&layout=compact" alt="minhal128" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=minhal128&show_icons=true&locale=en" alt="minhal128" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=minhal128&" alt="minhal128" /></p>
