@@ -3,14 +3,12 @@
 #include <string.h>
 #include <time.h>
 
-// Yahan ek structure define kia gaya hai jo transaction ko represent karega.
 typedef struct {
     char sender[50];
     char receiver[50];
     double amount;
 } Transaction;
 
-// Yahan ek structure define kia gaya hai jo block ko represent karega.
 typedef struct {
     int index;
     time_t timestamp;
@@ -19,13 +17,10 @@ typedef struct {
     char hash[65];
 } Block;
 
-// Yahan block ka hash calculate karne ka function hai.
 void calculateHash(Block *block, char *hashOutput) {
-    // Block ki information ko concatenate karnay ke liye ek string banao.
     char input[150];
     snprintf(input, sizeof(input), "%d%ld%s%s%lf", block->index, block->timestamp, block->data.sender, block->data.receiver, block->data.amount);
 
-    // Simple hash function use karo (demonstration ke liye).
     unsigned long hash = 5381;
     int i = 0;
 
@@ -33,33 +28,24 @@ void calculateHash(Block *block, char *hashOutput) {
         hash = ((hash << 5) + hash) + input[i++];
     }
 
-    // Hexadecimal form mein hash ko string mein convert karo.
     snprintf(hashOutput, 65, "%lx", hash);
 }
 
-// Yahan ek naya block create karne ka function hai.
 Block createBlock(int index, Transaction data, char *previousHash) {
     Block newBlock;
-
-    // Block ki information set karo.
     newBlock.index = index;
     newBlock.timestamp = time(NULL);
     newBlock.data = data;
     strcpy(newBlock.previousHash, previousHash);
-
-    // Block ka hash calculate karo.
     calculateHash(&newBlock, newBlock.hash);
-
     return newBlock;
 }
 
-// Yahan ek block ko blockchain mein add karne ka function hai.
 void addBlock(Block newBlock, Block *blockchain, int *blockchainSize) {
     blockchain[*blockchainSize] = newBlock;
     (*blockchainSize)++;
 }
 
-// Yahan blockchain ko display karne ka function hai.
 void displayBlockchain(Block *blockchain, int blockchainSize) {
     for (int i = 0; i < blockchainSize; ++i) {
         printf("\nBlock #%d\n", blockchain[i].index);
@@ -74,7 +60,6 @@ void displayBlockchain(Block *blockchain, int blockchainSize) {
     printf("\n");
 }
 
-// Yahan user se transaction input lene ka function hai.
 Transaction getTransactionInput() {
     Transaction transaction;
     printf("Sender ka naam enter karein: ");
@@ -87,16 +72,28 @@ Transaction getTransactionInput() {
     return transaction;
 }
 
+double calculateTotalAmount(Block *blockchain, int blockchainSize, const char *user) {
+    double totalAmount = 0.0;
+
+    for (int i = 0; i < blockchainSize; ++i) {
+        if (strcmp(blockchain[i].data.sender, user) == 0 || strcmp(blockchain[i].data.receiver, user) == 0) {
+            totalAmount += blockchain[i].data.amount;
+        }
+    }
+
+    return totalAmount;
+}
+
 int block() {
-    // Blockchain ko initialize karo.
-    Block blockchain[100];  // Assumed maximum of 100 blocks
+    Block blockchain[100];
     int blockchainSize = 0;
 
-    int choice = -1;  // Initialize choice to a non-zero value to enter the loop
+    int choice = -1;
 
     while (choice != 0) {
         printf("\n1. Transaction add karein\n");
         printf("2. Blockchain display karein\n");
+        printf("3. Calculate total transactions amount for user\n");
         printf("0. Exit\n");
         printf("Apna choice enter karein: ");
         scanf("%d", &choice);
@@ -104,7 +101,13 @@ int block() {
         switch (choice) {
             case 1: {
                 Transaction newTransaction = getTransactionInput();
-                Block newBlock = createBlock(blockchainSize, newTransaction, blockchain[blockchainSize - 1].hash);
+                Block newBlock;
+                if (blockchainSize == 0) {
+                    // Genesis block case
+                    newBlock = createBlock(0, newTransaction, "0");
+                } else {
+                    newBlock = createBlock(blockchainSize, newTransaction, blockchain[blockchainSize - 1].hash);
+                }
                 addBlock(newBlock, blockchain, &blockchainSize);
                 printf("Transaction blockchain mein add ho gayi hai.\n");
                 break;
@@ -112,6 +115,14 @@ int block() {
             case 2:
                 displayBlockchain(blockchain, blockchainSize);
                 break;
+            case 3: {
+                char userName[50];
+                printf("User ka naam enter karein: ");
+                scanf("%s", userName);
+                double totalAmount = calculateTotalAmount(blockchain, blockchainSize, userName);
+                printf("Total transactions amount for user %s: %.2lf\n", userName, totalAmount);
+                break;
+            }
             case 0:
                 printf("Exiting...\n");
                 break;
@@ -122,3 +133,8 @@ int block() {
 
     return 0;
 }
+
+
+    // block();
+    // return 0;
+
