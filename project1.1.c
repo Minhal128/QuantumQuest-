@@ -391,7 +391,7 @@ void condition4() {
                         decrypted4();
                         printf("\nRemarkable.. You help Hamas to conquered the Israel \n");
                         printf("\n\nHistory has been created \n\n");
-                        printf("\n\nCongratulations The Adinistrator is greatly pleased to the user, as hammas is helped by the user to conquer the Israel.\n\n");
+                        printf("\n\nCongratulations The Adiministrator is greatly pleased to the user, as hammas is helped by the user to conquer the Israel.\n\n");
                         return;  // Exit the function after successful decryption
                     } else {
                         printf("Error\nEnter the correct key to decrypt: \n");
@@ -438,7 +438,7 @@ void op() {
     char code5[]="The encrypted code is 'mnuncrwp rbajnu' ";
    
     printf("\nWelcome\n");
-    printf("\nHere are three exciting games for\n1- QuantumQuest (Encryption)\n2- EpicBlock Quest (Blockchain Basic)\n\n");
+    printf("\nHere are two exciting games for\n1- QuantumQuest (Encryption)\n2- EpicBlock Quest (Blockchain Basic)\n\n");
     scanf("%d", &option);
 
     switch (option) {
