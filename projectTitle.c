@@ -4,30 +4,68 @@
 #include "project1.1.c"
 #include "blockchainBaseConcept.c"
 
-void signUp();
-void login();
-void again1() {
-    char playAgain;
-    printf("\n\nDo you want to play again?\n'y' for Yes\n'n' for No");
-    scanf(" %c", &playAgain);  // Use a different variable to avoid conflicts with again
-    getchar();  // Consume the newline character left in the buffer
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
 
-    switch (playAgain) {
-        case 'y':
-        case 'Y':
-            printf("Login First\n\n");
-            login();
-            // Call the appropriate function (e.g., op()) after login
-            break;
-        case 'n':
-        case 'N':
-            goto end;
-        default:
-            printf("Invalid choice\n");
+// Function declarations
+void signUp();
+int login();
+
+
+    
+// Function to sign up a new user
+void signUp() {
+    char username[50], password[50];
+
+    printf("\nEnter a username: ");
+    scanf("%s", username);
+
+    printf("Enter a password: ");
+    scanf("%s", password);
+
+    // Append user details to the file
+    FILE *file = fopen("users.txt", "a");
+    if (file == NULL) {
+        printf("\nError opening file.\n");
+        exit(1);
     }
-    end:
-    printf("\nThank You\n");
+
+    fprintf(file, "%s %s\n", username, password);
+    fclose(file);
 }
+
+// Function to perform user login
+int login() {
+    char username[50], password[50];
+    int found = 0;
+
+    printf("\nEnter your username: ");
+    scanf("%s", username);
+
+    printf("Enter your password: ");
+    scanf("%s", password);
+
+    // Check if user credentials exist in the file
+    FILE *file = fopen("users.txt", "r");
+    if (file == NULL) {
+        printf("\nError opening file.\n");
+        exit(1);
+    }
+
+    char storedUsername[50], storedPassword[50];
+    while (fscanf(file, "%s %s", storedUsername, storedPassword) != EOF) {
+        if (strcmp(username, storedUsername) == 0 && strcmp(password, storedPassword) == 0) {
+            found = 1;
+            break;
+        }
+    }
+
+    fclose(file);
+
+    return found;
+}
+
 
 int main() {
     char web[50];
@@ -48,116 +86,40 @@ int main() {
     if (strstr(web, "www.iam.com") != NULL) {
         printf("\n\nCorrect URL");
         printf("\n\n********* Welcome to IAM *********");
-        printf("\n\nPress 1 - for Login\nPress 2 - for Sign Up\n");
+        int choice;
 
-        scanf("%d", &press);
-        getchar();
+    do {
+        printf("\n************* Welcome *************\n");
+        printf("1. Login\n");
+        printf("2. Sign Up\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-        switch (press) {
+        switch (choice) {
             case 1:
-                login();
+                if (login()) {
+                    printf("\nLogin successful!\n");
+                    op();
+                } else {
+                    printf("\nLogin failed. Invalid credentials.\n");
+                }
                 break;
             case 2:
                 signUp();
+                printf("\nSign up successful! You can now log in.\n");
                 op();
-                again1();
                 break;
+            case 3:
+                printf("\nExiting program.\n");
+                exit(0);
             default:
-                printf("\nInvalid choice\n");
-                break;
+                printf("\nInvalid choice. Please enter a valid option.\n");
         }
-    } else {
-        printf("Wrong URL");
-        printf("Enter coorect url:\n");
-        
-    }
-    // end:
-    // printf("\nThank You\n");
+
+    } while (1);
+
     return 0;
 }
-
-void signUp() {
-    char name[50], email[50], pass[50];
-
-    printf("\n\nSign Up\n");
-
-    printf("Enter the Username: ");
-    fgets(name, sizeof(name), stdin);
-    name[strcspn(name, "\n")] = '\0';
-
-    printf("\n\nEnter the Email: ");
-    fgets(email, sizeof(email), stdin);
-    email[strcspn(email, "\n")] = '\0';
-
-    while (1) {
-        printf("\n\nEnter the Password: ");
-        fgets(pass, sizeof(pass), stdin);
-        pass[strcspn(pass, "\n")] = '\0';
-
-        if (strchr(pass, ' ') == NULL) {
-            break;
-        } else {
-            printf("\n\aSpaces are not allowed in PASSWORD!\n\n");
-            printf("Re-Enter the password: ");
-        }
-    }
-
-    // append 
-    FILE *file = fopen("users.txt", "a");
-    if (file == NULL) {
-        printf("\nError opening file\n");
-        exit(1);
-    }
-
-    fprintf(file, "%s %s %s\n", name, email, pass);
-
-    fclose(file);
-
-    printf("\nUser registered successfully!\n");
-    //  op(option);
-   
-
 }
 
-void login() {
-    char email[50], pass[50];
-    int found = 0;
-
-    printf("\n\nLogin\n");
-
-    printf("Enter the Email: ");
-    fgets(email, sizeof(email), stdin);
-    email[strcspn(email, "\n")] = '\0';
-
-    printf("\n\nEnter the Password: ");
-    fgets(pass, sizeof(pass), stdin);
-    pass[strcspn(pass, "\n")] = '\0';
-
-    // Check if user credentials exist in the file
-    FILE *file = fopen("users.txt", "r");
-    if (file == NULL) {
-        printf("\nError opening file\n");
-        exit(1);
-    }
-
-    char line[200];
-    while (fgets(line, sizeof(line), file) != NULL) {
-        char storedEmail[50], storedPass[50];
-        sscanf(line, "%s %s", storedEmail, storedPass);
-
-        if (strcmp(email, storedEmail) == 0 && strcmp(pass, storedPass) == 0) {
-            found = 1;
-            break;
-        }
-    }
-
-    fclose(file);
-
-    if (found) {
-        printf("\nLogin successful!\n");
-    } else {
-        printf("\nInvalid email or password. Please try again.\n");
-    }
-
-    
-}

@@ -13,12 +13,12 @@ void printWithDelay(const char *text) {
     for (int i = 0; text[i] != '\0'; i++) {
         printf("%c", text[i]);
         fflush(stdout);
-        delay(5000); // Adjust the delay duration as needed
+        delay(500); // Adjust the delay duration as needed
 
         if (text[i] == ' ') {
             printf(" ");
             fflush(stdout);
-            delay(2500);
+            delay(250);
         }
     }
 }
@@ -416,6 +416,8 @@ void op() {
     int level;
     char again;
     int count = 4, key = 5; // Set the correct key value
+
+    // 
     char Story[] = "Surviving a 2000 Israeli attack on his Palestinian family, Abdul was adopted by Israelis and joined their army. In 2023, driven by a thirst for revenge, he assisted Hamas by revealing a concealed entry point into Israel through encrypted codes. Abdul's choice highlights the intricate interplay between personal history and geopolitical tensions, emphasizing the need for nuanced approaches to conflict resolution and understanding the complex emotions involved..... Now you are abdul and you have to help Hammas.";
     char Story2[]= "When the boy Abdul succeed to enter the hammas militry force to israel, then he start to work on giving access of israeli's militry base to hammas forces, by entering them to rare phase of israil's sniper tower base, to be conquered by the hammas militry forces by giving them a encrypted key to access the sniper base. ";
     char Story3[]= " Abdul did so just to attack the israeli's, by doing so he wants to give full access of sniper base to hammas forces, by hacking their cameras, weapons, radars, and base devices by the professionalised hackers. Then Abdul give them command to hack the cameras of the base. ";
