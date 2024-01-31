@@ -14,7 +14,7 @@ int login();
 
 
     
-// Function to sign up a new user
+// Function to sign up a new usera
 void signUp() {
     char username[50], password[50];
 
